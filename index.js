@@ -11,7 +11,9 @@ const cors = require('cors');
 server.use(cors());
 
 // routes and stuff...
-
+server.get('/forecast/location/:lat,:lon', (request, response) => {
+    response.send(`it works! yaaaayyy!!! ${request.params.lat}`)
+});
 
 // kick off this jam
 server.listen(port, () => {
