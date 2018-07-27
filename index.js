@@ -8,7 +8,7 @@ const urlFormatter = require('url');
 require('dotenv').config();
 
 // define the port -> Heroku needs the first part
-const port = process.env.PORT | 9009;
+const port = process.env.PORT || 9009;
 
 // define the base url for darksky (the common parts)
 const apiKey = process.env.API_KEY;
