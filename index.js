@@ -16,9 +16,11 @@ const url = `https://api.darksky.net/forecast/${apiKey}/`;
 
 // import middleware (power ups)
 const cors = require('cors');
+const helmet = require('helmet');
 
 // add the middleware (power ups)
 server.use(cors());
+server.use(helmet());
 
 // routes and stuff...
 server.get('/forecast/location/:lat,:lon', (request, response) => {
