@@ -11,11 +11,24 @@ class CurrentForecast extends Component {
     }
 
 componentDidMount() {
-
+    const starkeLat = '29.9441';
+    const starkeLon = '-82.1098';
+    const url = `/forecast/location/${lat},${lon}`;
+    axios.get(url).then(response => {
+        this.setState({
+            currently: response.data,
+            isLoading: false,
+        });
+    }).catch((error) => {
+            this.setState({
+                isLoading: true,
+                error: error,
+            });
+        });
 }
 
 render() {
-    const {isLoading, error, currently} = {
+    const {isLoading, error, currently} = this.state;
     if(error) {
         return (
             <p>
@@ -34,7 +47,7 @@ render() {
     }
     return(
         <div className='CurrentForecast-container' >
-            <section
+            <section />
         </div>
     );
 }
