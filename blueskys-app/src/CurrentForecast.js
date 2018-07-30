@@ -47,7 +47,33 @@ render() {
     }
     return(
         <div className='CurrentForecast-container' >
-            <section />
+            <div className='CurrentForecast-weather' >
+                <section className='CurrentForecast-icon' >
+                    {currently.icon}
+                </section>
+                <section className='CurrentForecast-temps' >
+                    <p className='CurrentForecast-actual' >
+                        {currently.temperature}F
+                    </p>
+                    <p className='CurrentForecast-apparent' >
+                        {currently.apparentTemperature}F
+                    </p>
+                </section>
+                <section className='CurrentForecast-other' >
+                    <p className='CurrentForecast-rainchance' >
+                        {currently.precipProbability * 100}
+                    </p>
+                    <p className='CurrentForecast-wind' >
+                        {currently.windSpeed}MPH
+                    </p>
+                    <p className='CurrentForecast-humidity' >
+                        {currently.humidity * 100}
+                    </p>
+                    <p className='CurrentForecast-uv' >
+                        {currently.uvIndex}
+                    </p>
+                </section>
+            </div>
         </div>
     );
 }
