@@ -7,7 +7,6 @@ class App extends Component {
     return (
       <div >
         <CurrentForecast/>
-        Something meaningfull will go here
       </div>
     );
   }
