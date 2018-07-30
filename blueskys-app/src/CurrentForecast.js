@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import WeatherIcons from 'react-weathericons';
+import 'CurrentForecast.css';
 import axios from 'axios';
 
 class CurrentForecast extends Component {
@@ -11,8 +13,9 @@ class CurrentForecast extends Component {
     }
 
 componentDidMount() {
-    const starkeLat = '29.9441';
-    const starkeLon = '-82.1098';
+    // static location for Starke, FL
+    const lat = '29.9441';
+    const lon = '-82.1098';
     const url = `/forecast/location/${lat},${lon}`;
     axios.get(url).then(response => {
         this.setState({
@@ -48,29 +51,37 @@ render() {
     return(
         <div className='CurrentForecast-container' >
             <div className='CurrentForecast-weather' >
-                <section className='CurrentForecast-icon' >
-                    {currently.icon}
-                </section>
-                <section className='CurrentForecast-temps' >
-                    <p className='CurrentForecast-actual' >
-                        {currently.temperature}F
+                <section className='CurrentForecast-local' >
+                    <h2 className='CurrentForecast-city' >
+                        Starke, FL
+                    </h2>
+                    <p className='CurrrentForecast-summary' >
+                        {currently.icon}
                     </p>
+                </section>
+                <section className='CurrentForecast-icon' >
+                    <WeatherIcons name="{cucrrently.icon}" size="2x" />
+                </section>
+                <section className='CurrentForecast-temp' >
+                    <h1 className='CurrentForecast-actual' >
+                        {currently.temperature}F
+                    </h1>
                     <p className='CurrentForecast-apparent' >
-                        {currently.apparentTemperature}F
+                       Feels Like: {currently.apparentTemperature}F
                     </p>
                 </section>
                 <section className='CurrentForecast-other' >
                     <p className='CurrentForecast-rainchance' >
-                        {currently.precipProbability * 100}
+                        Chance of Rain: {currently.precipProbability * 100}%
                     </p>
                     <p className='CurrentForecast-wind' >
-                        {currently.windSpeed}MPH
+                        Wind Speed: {currently.windSpeed} mph
                     </p>
                     <p className='CurrentForecast-humidity' >
-                        {currently.humidity * 100}
+                        Humidity: {currently.humidity * 100}%
                     </p>
                     <p className='CurrentForecast-uv' >
-                        {currently.uvIndex}
+                        UV: {currently.uvIndex}
                     </p>
                 </section>
             </div>

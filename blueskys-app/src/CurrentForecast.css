@@ -1,0 +1,58 @@
+.CurrentForecast-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CurrentForecast-weather {
+
+}
+
+.CurrentForecast-local {
+    
+}
+
+.CurrentForecast-city {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.CurrentForecast-summary {
+
+}
+
+.CurrentForecast-icon {
+
+}
+
+.CurrentForecast-temp {
+
+}
+
+.CurrentForecast-actual {
+
+}
+
+.CurrentForecast-apparent {
+
+}
+
+.CurrentForecast-other {
+
+}
+
+.CurrentForecast-rainchance {
+
+}
+
+.CurrentForecast-wind {
+
+}
+
+.CurrentForecast-humidity {
+
+}
+
+.CurrentForecast-uv {
+
+}
