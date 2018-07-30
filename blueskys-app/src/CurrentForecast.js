@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WeatherIcons from 'react-weathericons';
-import 'CurrentForecast.css';
+import './CurrentForecast.css';
 import axios from 'axios';
 
 class CurrentForecast extends Component {
@@ -19,7 +19,7 @@ componentDidMount() {
     const url = `/forecast/location/${lat},${lon}`;
     axios.get(url).then(response => {
         this.setState({
-            currently: response.data,
+            currently: response.data.currently,
             isLoading: false,
         });
     }).catch((error) => {
