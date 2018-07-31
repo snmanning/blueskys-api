@@ -1,0 +1,6 @@
+.weather {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 50rem
+}

@@ -18,7 +18,7 @@ componentDidMount() {
     const url = `/forecast/location/${lat},${lon}`;
     axios.get(url).then(response => {
         this.setState({
-            daily: response.data.daily.data,
+            daily: response.data.daily,
             isLoading: false,
         });
     }).catch((error) => {
@@ -48,13 +48,26 @@ render() {
         }
 
         const lo = Math.round(daily.data.temperatureLow);
-        const hi = Math.round(daily.datta.temperatureHigh);
+        const hi = Math.round(daily.data.temperatureHigh);
 
     return(
         <div className='ComingDays-container'>
+            <section className='ComingDays-icon' >
+                Eventually, a weather icon will appear here. Eventually. Maybe.
+            </section>
             <section className='ComingDays-weather' >
-                Lo: {lo}°F <br/>
-                Hi: {hi}°F
+                <h3 className='ComingDays-temps' >
+                    Lo: {lo}°F <br/>
+                    Hi: {hi}°F
+                </h3>
+                <p className='ComingDays-summary'>
+                    {daily.data.summary}
+                </p>
+            </section>
+            <section className='ComingDays-other' >
+                Rain Chance: {daily.data.precipProbability * 100}% <br/>
+                Humidity: {daily.data.humidity * 100}% <br/>
+                UV: {daily.data.uvIndex}
             </section>
         </div>
     );

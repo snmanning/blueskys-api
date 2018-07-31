@@ -1,10 +1,5 @@
 .CurrentForecast-container {
-    display: flex;
-    flex-direction: column;
-    border: 1.5px solid goldenrod;
-    background-color: lightblue;
-    width: 40vw;
-    height: 22rem
+    width: 50vw;
 }
 
 .CurrentForecast-weather {
