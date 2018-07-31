@@ -47,8 +47,8 @@ render() {
             );
         }
 
-        const lo = Math.round(daily.data.temperatureLow);
-        const hi = Math.round(daily.data.temperatureHigh);
+        const lo = Math.round(daily.data[0].temperatureLow);
+        const hi = Math.round(daily.data[0].temperatureHigh);
 
     return(
         <div className='ComingDays-container'>
@@ -61,13 +61,13 @@ render() {
                     Hi: {hi}°F
                 </h3>
                 <p className='ComingDays-summary'>
-                    {daily.data.summary}
+                    {daily.data[0].summary}
                 </p>
             </section>
             <section className='ComingDays-other' >
-                Rain Chance: {daily.data.precipProbability * 100}% <br/>
-                Humidity: {daily.data.humidity * 100}% <br/>
-                UV: {daily.data.uvIndex}
+                Rain Chance: {daily.data[0].precipProbability * 100}% <br/>
+                Humidity: {daily.data[0].humidity * 100}% <br/>
+                UV: {daily.data[0].uvIndex}
             </section>
         </div>
     );
