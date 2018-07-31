@@ -48,6 +48,11 @@ render() {
             </h1>
         );
     }
+
+    const temp = Math.round(currently.temperature);
+    const apparent = Math.round(currently.apparentTemperature);
+    const wind = Math.round(currently.windSpeed);
+
     return(
         <div className='CurrentForecast-container' >
             <div className='CurrentForecast-weather' >
@@ -60,29 +65,21 @@ render() {
                     </p>
                 </section>
                 <section className='CurrentForecast-icon' >
-                    <WeatherIcons name="{cucrrently.icon}" size="2x" />
+                    <WeatherIcons name="darksky" iconId="{currently.icon}" size="4x" />
                 </section>
                 <section className='CurrentForecast-temp' >
                     <h1 className='CurrentForecast-actual' >
-                        {currently.temperature}F
+                        {temp}F
                     </h1>
                     <p className='CurrentForecast-apparent' >
-                       Feels Like: {currently.apparentTemperature}F
+                       Feels Like: {apparent}F
                     </p>
                 </section>
                 <section className='CurrentForecast-other' >
-                    <p className='CurrentForecast-rainchance' >
-                        Chance of Rain: {currently.precipProbability * 100}%
-                    </p>
-                    <p className='CurrentForecast-wind' >
-                        Wind Speed: {currently.windSpeed} mph
-                    </p>
-                    <p className='CurrentForecast-humidity' >
-                        Humidity: {currently.humidity * 100}%
-                    </p>
-                    <p className='CurrentForecast-uv' >
-                        UV: {currently.uvIndex}
-                    </p>
+                    Chance of Rain: {currently.precipProbability * 100}% <br/>
+                    Wind Speed: {wind} mph <br/>
+                    Humidity: {currently.humidity * 100}% <br/>
+                    UV: {currently.uvIndex}
                 </section>
             </div>
         </div>
