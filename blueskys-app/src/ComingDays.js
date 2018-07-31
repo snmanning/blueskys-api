@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WeatherIcons from 'react-weathericons';
 import './ComingDays.css';
 import axios from 'axios';
 
@@ -7,7 +6,7 @@ class ComingDays extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            daily: {},
+            daily: [],
             isLoading: true
         };
     }
@@ -54,9 +53,8 @@ render() {
     return(
         <div className='ComingDays-container'>
             <section className='ComingDays-weather' >
-                <WeatherIcons name='darksky' iconId='{daily.data.icon}' />
-                Lo: {lo}F <br/>
-                Hi: {hi}F
+                Lo: {lo}°F <br/>
+                Hi: {hi}°F
             </section>
         </div>
     );

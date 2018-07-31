@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WeatherIcons from 'react-weathericons';
 import './CurrentForecast.css';
 import axios from 'axios';
 
@@ -8,6 +7,7 @@ class CurrentForecast extends Component {
         super(props);
         this.state = {
             currently: {},
+            // icons: "",
             isLoading: true
         };
     }
@@ -29,6 +29,27 @@ componentDidMount() {
             });
         });
 }
+
+// skycons() {
+//     const icons = new skycons({
+//         'color': '#F8C471',
+//         'resizeClear': true
+//     }),
+//     list = [
+//         'clear-day',
+//         'clear-night',
+//         'partly-cloudy-day',
+//         'partly-cloudy-night',
+//         'cloudy',
+//         'rain',
+//         'sleet',
+//         'snow',
+//         'wind',
+//         'fog'
+//     ];
+    
+//     icons.play();
+// }
 
 render() {
     const {isLoading, error, currently} = this.state;
@@ -65,14 +86,14 @@ render() {
                     </p>
                 </section>
                 <section className='CurrentForecast-icon' >
-                    <WeatherIcons name="darksky" iconId="{currently.icon}" size="4x" />
+                    {/* <canvas id='{this.skycons}' width='128' height='128' />  */}
                 </section>
                 <section className='CurrentForecast-temp' >
                     <h1 className='CurrentForecast-actual' >
-                        {temp}F
+                        {temp}°F
                     </h1>
                     <p className='CurrentForecast-apparent' >
-                       Feels Like: {apparent}F
+                       Feels Like: {apparent}°F
                     </p>
                 </section>
                 <section className='CurrentForecast-other' >
