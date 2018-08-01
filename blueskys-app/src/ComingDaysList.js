@@ -5,7 +5,7 @@ import Main from './Main';
 import PropTypes from 'prop-types'
 
 const ComingDaysList = (props) => {
-    const weekCast = props.daily.map((data, i) => 
+    const weekCast = props.futureCast.map((data, i) => 
         <ComingDays futureCast={data} key={i} />);
     return(
         <div>

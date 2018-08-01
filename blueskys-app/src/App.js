@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Main from './Main';
-import Heading fro './Heading';
+import Heading from './Heading';
 import CurrentForecast from './CurrentForecast';
 import ComingDaysList from './ComingDaysList';
 import './App.css';
@@ -12,24 +12,6 @@ class App extends Component {
       futureCast: [0, 1, 2],
     }
   }
-
-//   componentDidMount() {
-//     // static location for Starke, FL
-//     const lat = '29.9441';
-//     const lon = '-82.198';
-//     const url = `/forecast/location/${lat},${lon}`;
-//     axios.get(url).then(response => {
-//         this.setState({
-//             futureCast: response.data.daily,
-//             isLoading: false,
-//         });
-//     }).catch((error) => {
-//         this.setState({
-//             isLoading: true,
-//             error: error,
-//         });
-//     });
-// }
 
   render() {
     return (
