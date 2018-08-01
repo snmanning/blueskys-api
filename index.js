@@ -21,7 +21,7 @@ const helmet = require('helmet');
 // add the middleware (power ups)
 server.use(cors());
 server.use(helmet());
-server.use(express.static('client/build'));
+server.use(express.static('blueskys-app/build'));
 
 // routes and stuff...
 server.get('/forecast/location/:lat,:lon', (request, response) => {
