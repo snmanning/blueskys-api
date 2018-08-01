@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './ComingDays.css';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class ComingDays extends Component {
+    static propTypes = {
+        daily: PropTypes.string.isRequired
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +18,7 @@ class ComingDays extends Component {
 componentDidMount() {
     // static location for Starke, FL
     const lat = '29.9441';
-    const lon = '-82.1098';
+    const lon = '-82.198';
     const url = `/forecast/location/${lat},${lon}`;
     axios.get(url).then(response => {
         this.setState({
@@ -47,27 +51,29 @@ render() {
             );
         }
 
-        const lo = Math.round(daily.data[0].temperatureLow);
-        const hi = Math.round(daily.data[0].temperatureHigh);
+        const lo = Math.round(daily.data.temperatureLow);
+        const hi = Math.round(daily.data.temperatureHigh);
+
+        const {futureCast} = this.props;
 
     return(
         <div className='ComingDays-container'>
-            <section className='ComingDays-icon' >
+            <section className='ComingDays-icon' value={futureCast}>
                 Eventually, a weather icon will appear here. Eventually. Maybe.
             </section>
             <section className='ComingDays-weather' >
-                <h3 className='ComingDays-temps' >
+                <h3 className='ComingDays-temps' value={futureCast}>
                     Lo: {lo}°F <br/>
                     Hi: {hi}°F
                 </h3>
-                <p className='ComingDays-summary'>
-                    {daily.data[0].summary}
+                <p className='ComingDays-summary' value={futureCast}>
+                    {daily.data.summary}
                 </p>
             </section>
-            <section className='ComingDays-other' >
-                Rain Chance: {daily.data[0].precipProbability * 100}% <br/>
-                Humidity: {daily.data[0].humidity * 100}% <br/>
-                UV: {daily.data[0].uvIndex}
+            <section className='ComingDays-other' value={futureCast} >
+                Rain Chance: {daily.data.precipProbability * 100}% <br/>
+                Humidity: {daily.data.humidity * 100}% <br/>
+                UV: {daily.data.uvIndex}
             </section>
         </div>
     );
